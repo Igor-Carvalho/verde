@@ -1,11 +1,15 @@
 <form name="contactForm" cg-busy="vm.promise" novalidate>{% csrf_token %}
-  <div class="alert alert-success alert-dismissible" ng-if="vm.success_message" style="margin-bottom: 25px" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="font-size: 21px">&times;</span></button>
+  <div class="alert alert-success" ng-if="vm.success_message" style="margin-bottom: 25px" role="alert">
+    <button type="button" class="close" aria-label="Close" ng-click="vm.success_message=!vm.success_message">
+      <span aria-hidden="true" style="font-size: 21px">&times;</span>
+    </button>
     Sua mensagem foi enviada com sucesso! <strong>Obrigado!</strong>
   </div>
 
-  <div class="alert alert-danger alert-dismissible" ng-if="vm.error_message" style="margin-bottom: 25px" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="font-size: 21px">&times;</span></button>
+  <div class="alert alert-danger" ng-if="vm.error_message" style="margin-bottom: 25px" role="alert">
+    <button type="button" class="close" aria-label="Close" ng-click="vm.error_message=!vm.error_message">
+      <span aria-hidden="true" style="font-size: 21px">&times;</span>
+    </button>
     Infelizmente não foi possível receber sua mensagem. Pedimos que tente novamente mais tarde. Obrigado.
   </div>
 
