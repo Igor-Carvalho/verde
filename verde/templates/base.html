@@ -62,16 +62,22 @@
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'home' %}" class="nav-link {% active_link 'home' %}">home</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle nav-link {% active_link 'serviços' %}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">serviços <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
+                  <a href="#" class="dropdown-toggle nav-link {% active_link 'serviços' %}" data-toggle="dropdown"
+                      role="button" aria-haspopup="true" aria-expanded="false">serviços <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#"><i class="fa fa-folder"></i> Projetos</a></li>
+                      <li><a href="#"><i class="fa fa-table"></i> Planilhas</a></li>
+                      <li><a href="#"><i class="fa fa-print"></i> Plotagem</a></li>
+                    </ul>
                 </li>
-                <li><a href="#" class="nav-link {% active_link 'profissionais' %}">profissionais</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle nav-link {% active_link 'profissionais' %}" data-toggle="dropdown"
+                      role="button" aria-haspopup="true" aria-expanded="false">profissionais <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href=""><i class="fa fa-user"></i> Luany Monteiro</a></li>
+                      <li><a href=""><i class="fa fa-user"></i> André Araújo</a></li>
+                    </ul>
+                </li>
                 <li><a href="#" class="nav-link {% active_link 'contato' %}">contato</a></li>
               </ul>
             </div>
@@ -121,23 +127,23 @@
           <div class="col-lg-8 col-lg-offset-2">
             <div class="row" style="padding-top: 50px">
               <div class="col-lg-4 service-container">
-                <i class="fa fa-trophy fa-3x service-icon"></i>
-                <h3 class="service-title">Legimusinm</h3>
-                <p>Lorem ipsum dolor sit amet, unde omnis iste natus error sit voluptatem accusanti quas potenti malesuada vel phasellus.</p>
+                <i class="fa fa-folder fa-3x service-icon"></i>
+                <h3 class="service-title">Projetos</h3>
+                <p>Desenvolvemos projetos diversos como: Arquitetônicos, Estruturais, Instalações Hidráulicas/Sanitárias/Elétricas e Prevenção/Combate a Incêndio.</p>
                 <button class="btn btn-success service-button">Saiba mais</button>
               </div>
 
               <div class="col-lg-4 service-container">
-                <i class="fa fa-trophy fa-3x service-icon"></i>
-                <h3 class="service-title">Legimusinm</h3>
-                <p>Lorem ipsum dolor sit amet, unde omnis iste natus error sit voluptatem accusanti quas potenti malesuada vel phasellus.</p>
+                <i class="fa fa-table fa-3x service-icon"></i>
+                <h3 class="service-title">Planilhas</h3>
+                <p>Processamos planilhas e documentos diversos como: Orçamentos, Cronogramas, Licitações, ART e RRT, Memorial Descritivo e Responsabilidade Técnica.</p>
                 <button class="btn btn-success service-button">Saiba mais</button>
               </div>
 
               <div class="col-lg-4 service-container">
-                <i class="fa fa-trophy fa-3x service-icon"></i>
-                <h3 class="service-title">Legimusinm</h3>
-                <p>Lorem ipsum dolor sit amet, unde omnis iste natus error sit voluptatem accusanti quas potenti malesuada vel phasellus.</p>
+                <i class="fa fa-print fa-3x service-icon"></i>
+                <h3 class="service-title">Plotagem</h3>
+                <p>Fornecemos serviços de plotagem para diversos tamanhos de papel da <i>série A</i> (sucessivos cortes da referência A0) como A1, A2, A3 e A4.</p>
                 <button class="btn btn-success service-button">Saiba mais</button>
               </div>
             </div>
