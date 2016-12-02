@@ -42,8 +42,8 @@
 </head>
 <body>
   {% block body %}
-    <div class="container-fluid">
-      <nav class="navbar navbar-default" style="border-radius: 0; border: 0; background-color: #fff; margin-bottom: 0">
+    <nav class="navbar navbar-default navbar-fixed-top" style="border-radius: 0; border: 0; background-color: #fff; margin-bottom: 0">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2" style="padding: 18px 15px; margin-bottom: 0">
             <div class="navbar-header">
@@ -53,58 +53,61 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand">
-                <img src="{% static 'img/logo.png' %}" alt="Folha Estilizada" height="25" width="25">
-              </a>
               <a class="navbar-brand" href="{% url 'home' %}">
-                Verde Arquitetura &amp; Engenharia
+                <img class="navbar-brand-logo" src="{% static 'img/logo.png' %}" alt="Folha Estilizada" height="25" width="25">
               </a>
             </div>
 
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="{% url 'home' %}" class="nav-link nav-active">home</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">serviços <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </li>
-              <li><a href="#" class="nav-link">profissionais</a></li>
-              <li><a href="#" class="nav-link">contato</a></li>
-            </ul>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'home' %}" class="nav-link nav-active">home</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">serviços <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li>
+                <li><a href="#" class="nav-link">profissionais</a></li>
+                <li><a href="#" class="nav-link">contato</a></li>
+              </ul>
+            </div>
           </div>
         </div>
-      </nav>
+      </div>
+    </nav>
 
+    <div class="container-fluid">
       {% block content %}
-        <div class="row">
-          <div class="flexslider">
-            <ul class="slides">
-              <li>
-                <img src="{% static 'img/slide.jpg' %}" />
-              </li>
-              <li>
-                <img src="{% static 'img/slide.jpg' %}" />
-              </li>
-              <li>
-                <img src="{% static 'img/slide.jpg' %}" />
-              </li>
-              <li>
-                <img src="{% static 'img/slide.jpg' %}" />
-              </li>
-            </ul>
-          </div>
+        <div class="row" style="margin-top: 85px;">
+          <div class="col-lg-12" style="padding: 0">
+            <div class="flexslider">
+              <ul class="slides">
+                <li>
+                  <img src="{% static 'img/slide.jpg' %}" />
+                </li>
+                <li>
+                  <img src="{% static 'img/slide2.jpg' %}" />
+                </li>
+                <li>
+                  <img src="{% static 'img/slide.jpg' %}" />
+                </li>
+                <li>
+                  <img src="{% static 'img/slide2.jpg' %}" />
+                </li>
+              </ul>
+            </div>
 
-          <ol class="flex-control-nav flex-control-paging">
-            <li><a href="#" class="">1</a></li>
-            <li><a href="#" class="">2</a></li>
-            <li><a href="#" class="">3</a></li>
-            <li><a href="#" class="">4</a></li>
-          </ol>
+            <ol class="flex-control-nav flex-control-paging">
+              <li><a href="#" class="">1</a></li>
+              <li><a href="#" class="">2</a></li>
+              <li><a href="#" class="">3</a></li>
+              <li><a href="#" class="">4</a></li>
+            </ol>
+          </div>
         </div>
 
         <div class="row">
@@ -116,22 +119,22 @@
 
         <div class="row" style="background-color: #f6f6f6; color: #656565;">
           <div class="col-lg-8 col-lg-offset-2">
-            <div class="row" style="padding: 50px 0">
-              <div class="col-lg-4" style="text-align: center">
+            <div class="row" style="padding-top: 50px">
+              <div class="col-lg-4 service-container">
                 <i class="fa fa-trophy fa-3x service-icon"></i>
                 <h3 class="service-title">Legimusinm</h3>
                 <p>Lorem ipsum dolor sit amet, unde omnis iste natus error sit voluptatem accusanti quas potenti malesuada vel phasellus.</p>
                 <button class="btn btn-success service-button">Saiba mais</button>
               </div>
 
-              <div class="col-lg-4" style="text-align: center">
+              <div class="col-lg-4 service-container">
                 <i class="fa fa-trophy fa-3x service-icon"></i>
                 <h3 class="service-title">Legimusinm</h3>
                 <p>Lorem ipsum dolor sit amet, unde omnis iste natus error sit voluptatem accusanti quas potenti malesuada vel phasellus.</p>
                 <button class="btn btn-success service-button">Saiba mais</button>
               </div>
 
-              <div class="col-lg-4" style="text-align: center">
+              <div class="col-lg-4 service-container">
                 <i class="fa fa-trophy fa-3x service-icon"></i>
                 <h3 class="service-title">Legimusinm</h3>
                 <p>Lorem ipsum dolor sit amet, unde omnis iste natus error sit voluptatem accusanti quas potenti malesuada vel phasellus.</p>
