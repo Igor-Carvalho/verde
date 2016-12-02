@@ -14,6 +14,7 @@
   text-transform: uppercase;
   font-weight: 700;
   color: #6c6c6c;
+  font-size: 11px;
 }
 
 .nav-active {
@@ -102,8 +103,10 @@
   padding-top: 30px;
 }
 
-#footer p {
+#footer p,
+#subfooter p {
   margin: 0;
+  font-size: 11px;
 }
 
 .footer-header {
@@ -116,6 +119,7 @@
 .footer-link:hover,
 .footer-link:focus {
   color: #5cb85c;
+  font-size: 11px;
 }
 
 .footer-links {
