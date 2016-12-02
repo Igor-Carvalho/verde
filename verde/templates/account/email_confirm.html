@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Ativação de conta{% endblock %}
+
+{% block body %}
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      Ativação de conta
+    </div>
+    <div class="panel-body">
+      <p>Sua conta foi ativada com sucesso. Agora você pode fazer login em nosso site. Obrigado.</p>
+      <hr/>
+      <a href="{% url 'account_login' %}">Login</a>
+    </div>
+  </div>
+{% endblock body %}

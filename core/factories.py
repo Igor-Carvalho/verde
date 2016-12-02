@@ -1,0 +1,1 @@
+"""Fábricas da aplicação core."""
