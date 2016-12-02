@@ -256,9 +256,13 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'django.server',
         },
-        'console_TTCC': {
-            'class': 'logging.StreamHandler',
+        'file_TTCC': {
+            'filters': ['require_debug_false'],
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
             'formatter': 'TTCC',
+            'filename': 'production.log',
+
         },
     },
     'loggers': {
@@ -266,7 +270,7 @@ LOGGING = {
             'handlers': ['console'],
         },
         'django.request': {
-            'handlers': ['mail_admins'],
+            'handlers': ['mail_admins', 'file_TTCC'],
             'level': 'ERROR',
             'propagate': False,
         },
