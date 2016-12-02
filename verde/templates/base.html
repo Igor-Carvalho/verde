@@ -1,4 +1,4 @@
-<!doctype html>{% load static from staticfiles %}
+<!doctype html>{% load static from staticfiles %}{% load active_link from core_tags %}
 <html lang="en" ng-app="verde">
 <head>
   {% block meta %}
@@ -60,9 +60,9 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="{% url 'home' %}" class="nav-link nav-active">home</a></li>
+                <li><a href="{% url 'home' %}" class="nav-link {% active_link 'home' %}">home</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">serviços <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle nav-link {% active_link 'serviços' %}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">serviços <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Another action</a></li>
@@ -71,8 +71,8 @@
                     <li><a href="#">Separated link</a></li>
                   </ul>
                 </li>
-                <li><a href="#" class="nav-link">profissionais</a></li>
-                <li><a href="#" class="nav-link">contato</a></li>
+                <li><a href="#" class="nav-link {% active_link 'profissionais' %}">profissionais</a></li>
+                <li><a href="#" class="nav-link {% active_link 'contato' %}">contato</a></li>
               </ul>
             </div>
           </div>
