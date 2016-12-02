@@ -65,6 +65,8 @@ EMAIL_SUBJECT_PREFIX = os.environ.get('EMAIL_SUBJECT_PREFIX', '[Django]')
 # default from: header in mail_admins/managers.
 SERVER_EMAIL = os.environ.get('SERVER_EMAIL', 'admin@localhost')
 
+ALLOWED_HOSTS = ['*']
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
