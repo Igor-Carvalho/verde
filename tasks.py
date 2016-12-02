@@ -27,12 +27,9 @@ def test(ctx, tests='', settings='test'):
 
 
 @invoke.task(default=True)
-def run_server(ctx, settings='development'):
+def run_server(ctx, address='0.0.0.0:8000', settings='development'):
     """Executa o servidor web."""
-    cmd = './manage.py runserver --settings=verde.settings.{}'.format(settings)
-    if 'prod' in settings:
-        cmd = 'gunicorn verde.wsgi --workers=4'
-
+    cmd = './manage.py runserver {} --settings=verde.settings.{}'.format(address, settings)
     ctx.run(cmd, echo=True, pty=True)
 
 
