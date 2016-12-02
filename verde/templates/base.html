@@ -17,12 +17,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-resource.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.9/angular-messages.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-busy/4.1.3/angular-busy.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.3/jquery.flexslider.min.js"></script>
+  <script src="{% static 'js/focusIf.min.js' %}"></script>
 
   <script src="{% static 'app/app.module.js' %}"></script>
   <script src="{% static 'app/app.config.js' %}"></script>
+  <script src="{% static 'app/contato/contatoForm.service.js' %}"></script>
+  <script src="{% static 'app/contato/form.js' %}"></script>
   <script>
     {% block script %}
       var app = angular.module('verde');
@@ -30,6 +34,9 @@
         templateUrl: '{% static "templates/angular-busy.html" %}',
         message: 'Aguarde...'
       });
+
+      app.constant('contatoForm', '{% url "contato:contato_form_view" %}');
+      app.constant('contatoFormAction', '{% url "contato:enviar_formulário" %}');
 
       $(function() {
         $('.flexslider').flexslider({
@@ -79,7 +86,7 @@
                       <li><a href=""><i class="fa fa-user"></i> André Araújo</a></li>
                     </ul>
                 </li>
-                <li><a href="#" class="nav-link {% active_link 'contato' %}">contato</a></li>
+                <li><a href="{% url 'contato:contato' %}" class="nav-link {% active_link 'contato' %}">contato</a></li>
               </ul>
             </div>
           </div>
@@ -89,7 +96,7 @@
 
     <div class="container-fluid">
       {% block content %}
-        <div class="row" style="margin-top: 85px;">
+        <div class="row" style="margin-top: 86px;">
           <div class="col-lg-12" style="padding: 0">
             <div class="flexslider">
               <ul class="slides">
@@ -161,42 +168,41 @@
             </div>
           </div>
         </div>
-
-        <div id="footer" class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            <div class="row">
-              <div class="col-lg-12" style="padding-bottom: 30px;">
-                <h4 class="footer-header">Contato</h4>
-                <p style="font-size: small">Tailândia - Pará</p>
-                <p style="font-size: small">Travessa Aveiros, Nº 75, Casa J - Condomínio Maranata</p>
-                <p>&nbsp;</p>
-                <p style="font-size: small">Tel.: (091) 98137-8953</p>
-                <p style="font-size: small">Tel.: (091) 99148-2298</p>
-                <p style="font-size: small">Email: <a href="mailto:verde.arq.eng@gmail.com" class="footer-link">verde.arq.eng@gmail.com</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row" style="background-color: #111;padding: 10px 0">
-          <div class="col-lg-8 col-lg-offset-2">
-            <div class="row" style="padding-top: 10px">
-              <div class="col-lg-8" style="padding-bottom: 10px">
-                <span style="font-size: 10.5px">
-                  &copy; Copyright 2016 <a href="https://verde-arq-eng.herokuapp.com" target="_blank" class="footer-link">https://verde-arq-eng.herokuapp.com</a>
-                </span>
-              </div>
-
-              <div class="col-lg-4" style="padding-bottom: 10px">
-                <div class="footer-links">
-                  <a href="">Home</a> <a href="">Serviços</a> <a href="">Profissionais</a> <a href="">Contato</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
       {% endblock content %}
+
+      <div id="footer" class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="row">
+            <div class="col-lg-12" style="padding-bottom: 30px;">
+              <h4 class="footer-header">Contato</h4>
+              <p style="font-size: small">Tailândia - Pará</p>
+              <p style="font-size: small">Travessa Aveiros, Nº 75, Casa J - Condomínio Maranata</p>
+              <p>&nbsp;</p>
+              <p style="font-size: small">Tel.: (091) 98137-8953</p>
+              <p style="font-size: small">Tel.: (091) 99148-2298</p>
+              <p style="font-size: small">Email: <a href="mailto:verde.arq.eng@gmail.com" class="footer-link">verde.arq.eng@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="background-color: #111;padding: 10px 0">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="row" style="padding-top: 10px">
+            <div class="col-lg-8" style="padding-bottom: 10px">
+              <span style="font-size: 10.5px">
+                &copy; Copyright 2016 <a href="https://verde-arq-eng.herokuapp.com" target="_blank" class="footer-link">https://verde-arq-eng.herokuapp.com</a>
+              </span>
+            </div>
+
+            <div class="col-lg-4" style="padding-bottom: 10px">
+              <div class="footer-links">
+                <a href="{% url 'home' %}">Home</a> <a href="">Serviços</a> <a href="">Profissionais</a> <a href="{% url 'contato:contato' %}">Contato</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   {% endblock body %}
 </body>

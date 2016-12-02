@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Contato{% endblock title %}  
+
+{% block content %}
+  <div class="row" style="margin-top: 86px;">
+    <div id="map" class="contact-map"></div>
+    <script type="text/javascript">
+      var map;
+      var marker;
+      var position = {lat: -2.9478209, lng: -48.947197};
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: position,
+          zoom: 18,
+          mapTypeId: google.maps.MapTypeId.SATELLITE
+        });
+        marker = new google.maps.Marker({
+          position: position,
+          map: map
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFJW4z_hzTIup01GxrTXn05aU2XMeL5T4&callback=initMap"></script>
+  </div>
+
+  <div class="row" style="background-color: #f6f6f6; color: #656565;">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="row">
+        <div class="col-lg-8" style="padding: 20px">
+          <h4 class="service-title">Deixe uma mensagem</h4>
+          <hr>
+          <contato-form></contato-form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

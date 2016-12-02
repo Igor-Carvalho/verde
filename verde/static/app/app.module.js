@@ -3,6 +3,8 @@
   
   angular.module('verde', [
     'ngResource',
-    'cgBusy'
+    'cgBusy',
+    'ngMessages',
+    'focus-if'
   ]);
 })();

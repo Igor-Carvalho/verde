@@ -1,0 +1,71 @@
+<form name="contactForm" cg-busy="vm.promise" novalidate>{% csrf_token %}
+  <div class="alert alert-success alert-dismissible" ng-if="vm.success_message" style="margin-bottom: 25px" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="font-size: 21px">&times;</span></button>
+    Sua mensagem foi enviada com sucesso! <strong>Obrigado!</strong>
+  </div>
+
+  <div class="alert alert-danger alert-dismissible" ng-if="vm.error_message" style="margin-bottom: 25px" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="font-size: 21px">&times;</span></button>
+    Infelizmente não foi possível receber sua mensagem. Pedimos que tente novamente mais tarde. Obrigado.
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': contactForm.subject.$dirty && contactForm.subject.$invalid, 'has-success': !contactForm.subject.$invalid}">
+    <label>Assunto <span class="text-danger">*</span></label>
+    <i class="fa fa-check-circle" ng-show="contactForm.subject.$dirty && !contactForm.subject.$invalid" style="color: green"></i>
+
+    <span ng-messages="contactForm.subject.$dirty && contactForm.subject.$error">
+      <span class="text-danger" ng-message="required">
+        <i class="fa fa-times-circle"></i> Este campo é requerido
+      </span>
+    </span>
+
+    <input type="text" name="subject" class="form-control" ng-model="vm.message.subject" focus-if="vm.count" required>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': contactForm.email.$dirty && contactForm.email.$invalid, 'has-success': !contactForm.email.$invalid}">
+    <label>Email <span class="text-danger">*</span></label>
+    <i class="fa fa-check-circle" ng-show="contactForm.email.$dirty && !contactForm.email.$invalid" style="color: green"></i>
+
+    <span ng-messages="contactForm.email.$dirty && contactForm.email.$error">
+      <span class="text-danger" ng-message="required">
+        <i class="fa fa-times-circle"></i> Este campo é requerido
+      </span>
+
+      <span class="text-danger" ng-message="email">
+        <i class="fa fa-times-circle"></i> Email inválido
+      </span>
+    </span>
+
+    <input type="email" name="email" class="form-control" ng-model="vm.message.email" required>
+  </div>
+
+  <div class="form-group" ng-class="{'has-error': contactForm.message.$dirty && contactForm.message.$invalid, 'has-success': !contactForm.message.$invalid}">
+    <label>Mensagem <span class="text-danger">*</span></label>
+    <i class="fa fa-check-circle" ng-show="contactForm.message.$dirty && !contactForm.message.$invalid" style="color: green"></i>
+
+    <span ng-messages="contactForm.message.$dirty && contactForm.message.$error">
+      <span class="text-danger" ng-message="required">
+        <i class="fa fa-check-circle"></i> Este campo é requerido
+      </span>
+    </span>
+
+    <textarea name="message" class="form-control" ng-model="vm.message.message" required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Tamanho do seu terreno? (em metros)</label>
+    <input type="text" name="land_size" class="form-control" ng-model="vm.message.land_size"/>
+  </div>
+
+  <div class="form-group">
+    <label>Quantos andares?</label>
+    <input type="text" name="floors" class="form-control" ng-model="vm.message.floors"/>
+  </div>
+
+  <div class="form-group">
+    <label>Quantos quartos?</label>
+    <input type="text" name="rooms" class="form-control" ng-model="vm.message.rooms"/>
+  </div>
+
+  <button class="btn btn-default" ng-disabled="contactForm.$invalid" ng-click="vm.sendMessage(contactForm)">Enviar</button>
+</form>
