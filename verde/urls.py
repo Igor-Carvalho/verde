@@ -3,14 +3,14 @@
 from django.conf import settings, urls
 from django.conf.urls import static
 from django.contrib import admin
-from django.core import urlresolvers
-from django.views import generic
 
 from . import views
 
 urlpatterns = [
-    urls.url(r'^$', generic.RedirectView.as_view(url=urlresolvers.reverse_lazy('home'), permanent=True)),
-    urls.url(r'^home/$', views.IndexView.as_view(), name='home'),
+    urls.url(r'^$', views.redirect_index_view),
+    urls.url(r'^home/$', views.index_view, name='home'),
+    urls.url(r'^sobre/$', views.sobre_view, name='sobre'),
+    urls.url(r'^profissionais/', urls.include('profissionais.urls', namespace='profissionais')),
     urls.url(r'^contato/', urls.include('contato.urls', namespace='contato')),
     # urls.url(r'^rest_auth/', urls.include('rest_auth.urls')),
     # urls.url(r'^rest_auth/registration/', urls.include('rest_auth.registration.urls')),

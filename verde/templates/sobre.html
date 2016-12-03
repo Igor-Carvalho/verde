@@ -1,0 +1,44 @@
+{% extends "base.html" %}{% load static from staticfiles %}
+
+{% block title %}Sobre{% endblock title %}
+
+{% block content %}
+    <div class="row" style="margin-top: 86px; background-color: #f6f6f6; color: #656565;">
+      <div class="col-lg-8 col-lg-offset-2" style="padding-top: 50px; padding-bottom: 70px; text-align: center;">
+        <h2 style="margin-bottom: 25px; font-weight: 700;color:#5cb85c">Nossos Profissionais</h2>
+        <p>Somos uma empresa que atua nas áreas de arquitetura, engenharia e gerenciamento de obras, desenvolvendo soluções com qualidade e excelência a nossos clientes. Nosso intuito é prestar serviços que atinjam e superem as expectativas dos clientes, utilizando as melhores tecnologias disponíveis no mercado.</p>
+
+        <div class="row" style="margin-top: 80px">
+          <div class="col-lg-6" style="text-align: center">
+            <img src="{% static 'img/andre.jpg' %}" alt="" class="img-circle" style="border: 2px solid #5cb85c"/>
+            <h3 class="service-title">André Luiz</h3>
+            <p style="margin-top: -10px; margin-bottom: 15px">Arquiteto e Urbanista</p>
+            <a href="">
+              <img src="{% static 'img/facebook_circle.png' %}" alt="" width="48" height="48"/>
+            </a>
+            <a href="">
+              <img src="{% static 'img/twitter_circle.png' %}" alt="" width="48" height="48"/>
+            </a>
+            <a href="">
+              <img src="{% static 'img/instagram_circle.png' %}" alt="" width="48" height="48"/>
+            </a>
+          </div>
+
+          <div class="col-lg-6" style="text-align: center">
+            <img src="{% static 'img/luany.jpg' %}" alt="" class="img-circle" style="border: 2px solid #5cb85c"/>
+            <h3 class="service-title">Luany Monteiro</h3>
+            <p style="margin-top: -10px; margin-bottom: 15px">Engª Civil e Mestre Eng. Mecânica</p>
+            <a href="">
+              <img src="{% static 'img/facebook_circle.png' %}" alt="" width="48" height="48"/>
+            </a>
+            <a href="">
+              <img src="{% static 'img/twitter_circle.png' %}" alt="" width="48" height="48"/>
+            </a>
+            <a href="">
+              <img src="{% static 'img/instagram_circle.png' %}" alt="" width="48" height="48"/>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

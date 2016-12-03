@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'contato.apps.ContatoConfig',
+    'profissionais.apps.ProfissionaisConfig',
     'gunicorn',
     'post_office',
     'rest_framework',
