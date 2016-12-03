@@ -71,5 +71,7 @@
     <input type="text" name="rooms" class="form-control" ng-model="vm.message.rooms"/>
   </div>
 
-  <button class="btn btn-default" ng-disabled="contactForm.$invalid" ng-click="vm.sendMessage(contactForm)">Enviar</button>
+  <button class="btn btn-default" ng-disabled="contactForm.$invalid" ng-click="vm.sendMessage(contactForm)">
+    <i class="fa fa-envelope-o"></i> Enviar
+  </button>
 </form>
