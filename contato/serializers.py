@@ -1,6 +1,5 @@
 """Serializadores da aplicação contato."""
 
-from django.conf import settings
 from django.core import mail
 from rest_framework import serializers
 
@@ -12,9 +11,14 @@ class FormulárioContatoSerializer(serializers.Serializer):
     subject = serializers.CharField()
     message = serializers.CharField()
 
+    def construir_mensagem_de_email(self):
+        """Constroe a mensagem de email a ser enviada."""
+        email, mensagem_original = self.validated_data['email'], self.validated_data['message']
+        return '[Email Original: {}]\n\n{}'.format(email, mensagem_original)
+
     def save(self, *args, **kwargs):
         """Processa o formulário."""
-        params = self.validated_data
-        email, assunto, mensagem = params['email'], params['subject'], params['message']
+        data = self.validated_data
+        assunto, mensagem = data['subject'], self.construir_mensagem_de_email()
 
-        mail.send_mail(assunto, mensagem, email, [m[1] for m in settings.MANAGERS])
+        mail.mail_managers(assunto, mensagem)

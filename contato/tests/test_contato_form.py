@@ -1,9 +1,12 @@
 """Módulo contento testes do formulário de contato."""
 
+from django.conf import settings
 from django.core import mail, urlresolvers
 from django.test import override_settings
 from rest_framework import status
 from rest_framework.test import APITestCase
+
+from .. import serializers
 
 
 class TestContatoForm(APITestCase):
@@ -24,9 +27,12 @@ class TestContatoForm(APITestCase):
         self.assertEqual(len(mail.outbox), 1)
 
         email = mail.outbox[0]
-        self.assertEqual(email.from_email, 'email@domain.com')
-        self.assertEqual(email.subject, 'Assunto')
-        self.assertEqual(email.body, 'Mensagem teste')
+        self.assertEqual(email.from_email, settings.SERVER_EMAIL)
+        self.assertEqual(email.subject, '{}{}'.format(settings.EMAIL_SUBJECT_PREFIX, 'Assunto'))
+        serializer = serializers.FormulárioContatoSerializer(data=params)
+        self.assertTrue(serializer.is_valid())
+        self.assertEqual(email.body, serializer.construir_mensagem_de_email())
+        self.assertEqual(email.to, [m[-1] for m in settings.MANAGERS])
 
     def test_enviar_formulário_bad_request(self):
         """Verifica se mensagens de erro são enviadas corretamente ao usuário."""
