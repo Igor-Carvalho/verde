@@ -97,7 +97,7 @@
 
     <div class="container-fluid">
       {% block content %}
-        <div class="row" style="margin-top: 86px;">
+        <!--<div class="row" style="margin-top: 86px;">
           <div class="col-lg-12" style="padding: 0">
             <div class="flexslider">
               <ul class="slides">
@@ -123,12 +123,18 @@
               <li><a href="#" class="">4</a></li>
             </ol>
           </div>
+        </div>-->
+
+        <div class="fullscreen-bg">
+          <video loop muted autoplay poster="{% static 'img/image.png' %}" class="fullscreen-bg__video">
+            <source src="http://physcode.com/video/330149744.mp4" type="video/mp4">
+          </video>
         </div>
 
         <div class="row">
-          <div class="col-lg-8 col-lg-offset-2" style="padding-top: 50px; padding-bottom: 70px; text-align: center">
-            <h2 style="margin-bottom: 25px; font-weight: 700;color:#5cb85c">Bem vindo a Verde Arquitetura & Engenharia</h2>
-            <p>Somos uma empresa que atua nas áreas de arquitetura, engenharia e gerenciamento de obras, desenvolvendo soluções com qualidade e excelência a nossos clientes. Nosso intuito é prestar serviços que atinjam e superem as expectativas dos clientes, utilizando as melhores tecnologias disponíveis no mercado.</p>
+          <div class="col-lg-8 col-lg-offset-2" style="padding-top: 350px; padding-bottom: 300px; text-align: center">
+            <h1 style="margin-bottom: 25px; font-weight: 800;color:#006400; font-size: 60px">Bem vindo a Verde Arquitetura & Engenharia</h1>
+            <h4 style="color: #fff">Somos uma empresa que atua nas áreas de arquitetura, engenharia e gerenciamento de obras, desenvolvendo soluções com qualidade e excelência a nossos clientes. Nosso intuito é prestar serviços que atinjam e superem as expectativas dos clientes, utilizando as melhores tecnologias disponíveis no mercado.</h4>
           </div>
         </div>
 
