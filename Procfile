@@ -1,1 +1,1 @@
-web: gunicorn verde.wsgi --worker-class=gaiohttp --workers=4
+web: gunicorn verde.wsgi --workers=4
